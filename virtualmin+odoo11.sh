@@ -42,7 +42,7 @@ CYAN="$(tput setaf 6)"
 NORMAL="$(tput sgr0)"
 
 # Set defaults
-bundle='LEMP' # Other option is LEMP
+bundle='LAMP' # Other option is LEMP
 mode='full' # Other option is minimal
 
 usage () {
