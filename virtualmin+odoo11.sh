@@ -1,6 +1,7 @@
 #!/bin/sh
-# Instala TOdo lo necesrio para un servidor ODOO 11 
+# Instala Todo lo necesario para un servidor ODOO 11 
 # 10-02-2019
+# 24-03-2019
 
  
 # shellcheck disable=SC2059 disable=SC2181 disable=SC2154
@@ -41,7 +42,7 @@ CYAN="$(tput setaf 6)"
 NORMAL="$(tput sgr0)"
 
 # Set defaults
-bundle='LAMP' # Other option is LEMP
+bundle='LEMP' # Other option is LEMP
 mode='full' # Other option is minimal
 
 usage () {
@@ -951,8 +952,9 @@ else
 fi
 
 
-
-
+#Step 3 — Configuring Webmin's Root Password
+sudo /usr/share/webmin/changepass.pl /etc/webmin root MOISES1_1980
+sudo systemctl restart webmin
 
 
 ################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################
@@ -984,14 +986,14 @@ OE_HOME_EXT="/$OE_USER/${OE_USER}-server"
 #Set to true if you want to install it, false if you don't need it or have it already installed.
 INSTALL_WKHTMLTOPDF="True"
 #Set the default Odoo port (you still have to use -c /etc/odoo-server.conf for example to use this.)
-OE_PORT="8069"
+OE_PORT="8070"
 #Choose the Odoo version which you want to install. For example: 11.0, 10.0, 9.0 or saas-18. When using 'master' the master version will be installed.
 #IMPORTANT! This script contains extra libraries that are specifically needed for Odoo 11.0
 OE_VERSION="11.0"
 # Set this to True if you want to install Odoo 11 Enterprise!
 IS_ENTERPRISE="False"
 #set the superadmin password
-OE_SUPERADMIN="admin"
+OE_SUPERADMIN="magno"
 OE_CONFIG="${OE_USER}-server"
 
 ##
@@ -1008,6 +1010,7 @@ OE_CONFIG="${OE_USER}-server"
 echo -e "\n---- Update Server ----"
 sudo apt-get update
 sudo apt-get upgrade -y
+sudo apt-get dist-upgrade -y
 sudo apt-get install git -y
 sudo apt-get install fontconfig -y
 
@@ -1060,6 +1063,7 @@ sudo apt -f install
 #--------------------------------------------------
 # Install ODOO
 #--------------------------------------------------
+
 wget -O - https://nightly.odoo.com/odoo.key | apt-key add -
 echo "deb http://nightly.odoo.com/11.0/nightly/deb/ ./" >> /etc/apt/sources.list.d/odoo.list
 sudo apt-get update && apt-get install odoo
