@@ -1,5 +1,5 @@
 #!/bin/sh
-# Instala Todo lo necesario para un servidor ODOO 11 
+# Instala Todo lo necesario para un servidor ODOO 13 con VirtualMIN
 # 10-02-2019
 # 24-03-2019
 
