@@ -990,7 +990,7 @@ OE_VERSION="13.0"
 # Set this to True if you want to install the Odoo enterprise version!
 IS_ENTERPRISE="False"
 # Set this to True if you want to install Nginx!
-INSTALL_NGINX="True"
+INSTALL_NGINX="False"
 # Set the superadmin password - if GENERATE_RANDOM_PASSWORD is set to "True" we will automatically generate a random password, otherwise we use this one
 OE_SUPERADMIN="magno"
 # Set to "True" to generate a random password, "False" to use the variable in OE_SUPERADMIN
